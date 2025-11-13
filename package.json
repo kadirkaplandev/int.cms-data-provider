@@ -1,7 +1,7 @@
 {
-  "name": "ecommerce-backend",
+  "name": "int.cms-data-provider",
   "version": "0.0.1",
-  "description": "",
+  "description": "data provider for cms",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
