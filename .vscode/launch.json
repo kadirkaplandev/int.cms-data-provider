@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DEV",
+            "type": "node-terminal",
+            "request": "launch",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/src/main.ts"
+            ],
+           "command": "npm run start:dev",
+            "env": {
+                "DB_HOST": "localhost",
+                "MONGO_URI": "mongodb+srv://kadirkaplan:FBYQBcxPROyR6YaA@devcmsmongodbatlasclust.h6x4i.mongodb.net/inttest"
+            }
+            //"envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
