@@ -1,23 +1,25 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { ContentService } from './content.service';
-import { CreateContentDto } from './dto/create-content.dto';
-import { UpdateContentDto } from './dto/update-content.dto';
 import { Content } from '../schemas/content.schema';
+import { contentFilterDto, paginationDto } from './dto/content-filter.dto';
 
 @Controller('content')
 export class ContentController {
-  constructor(private readonly contentService: ContentService) {}
+  constructor(private readonly contentService: ContentService) { }
 
-  
 
-  @Get()
-  async findAll(): Promise<Content[]> {
-    return  await this.contentService.findAll();
+
+  @Post()
+  async findAll(
+    @Body() filter: contentFilterDto,
+    @Query() pagination: paginationDto
+  ): Promise<Content[]> {
+    return await this.contentService.findAll(filter, pagination);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.contentService.findOne(id);
+  async findOne(@Param('id') id: string) {
+    return await this.contentService.findOne(id);
   }
 
 }

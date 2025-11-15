@@ -9,11 +9,14 @@ async function bootstrap() {
   app.useGlobalPipes( // global validation pipe
     new ValidationPipe({
       whitelist: true,
+      transform: true,
+      transformOptions: { enableImplicitConversion: true },
+
     })
   );
 
-  app.useGlobalInterceptors(new ResponseInterceptor )  // custom response interceptor
-  
+  app.useGlobalInterceptors(new ResponseInterceptor)  // custom response interceptor
+
   const configService = app.get(ConfigService);
   const port = configService.get<number>('PORT') || 3000;
   await app.listen(port);

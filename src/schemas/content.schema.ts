@@ -11,20 +11,17 @@ export type ContentDocument = HydratedDocument<Content>;
 })
 export class Content {
   @Prop({
-    type: Number, 
-    required: true, 
-    unique: true, 
-    alias: 'id'
+    type: Number
   })
   _id: number;
-  
+
   @Prop()
   type: string;
 
   @Prop()
   title: string;
 
- 
+
 }
 
 export const ContentSchema = SchemaFactory.createForClass(Content)
