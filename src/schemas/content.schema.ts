@@ -21,6 +21,17 @@ export class Content {
   @Prop()
   title: string;
 
+  @Prop({ type: Array })
+  fields: Array<any>;
+
+  @Prop({ type: Array, default: [] })
+  media: Array<any>;
+  
+  @Prop({ type: Array, default: [] })
+  singleVideos: Array<any>
+
+   @Prop({ type: Array, default: [] })
+  episode: Array<any>
 
 }
 

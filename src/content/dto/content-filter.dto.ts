@@ -18,6 +18,7 @@ export class contentFilterDto {
     @IsString({ each: true })
     @IsEnum(ContentType, { each: true })
     type: ContentType[];
+    
 
 
 }
